@@ -80,3 +80,14 @@ E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorControlPanel\bin\Microsoft.Owin.S
 E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorControlPanel\obj\Debug\ArkhamHorrorControlPanel.csprojResolveAssemblyReference.cache
 E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorControlPanel\obj\Debug\ArkhamHorrorControlPanel.dll
 E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorControlPanel\obj\Debug\ArkhamHorrorControlPanel.pdb
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorControlPanel\bin\MySql.Data.dll
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorControlPanel\bin\MySql.Data.Entity.EF6.dll
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorControlPanel\bin\MySql.Web.dll
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorControlPanel\bin\WebMatrix.WebData.dll
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorControlPanel\bin\WebMatrix.Data.dll
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorControlPanel\bin\MySql.Data.xml
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorControlPanel\bin\MySql.Data.Entity.EF6.xml
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorControlPanel\bin\MySql.Web.xml
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorControlPanel\bin\WebMatrix.WebData.xml
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorControlPanel\bin\WebMatrix.Data.xml
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorControlPanel\bin\MySql.Fabric.Plugin.dll
