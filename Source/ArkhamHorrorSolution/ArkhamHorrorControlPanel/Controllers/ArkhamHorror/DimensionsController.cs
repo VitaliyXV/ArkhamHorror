@@ -92,7 +92,7 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
                 dim.Description = dimension.Description;
                 dim.GameExtention = dimension.GameExtention;
                 dim.LocalName = dimension.LocalName;
-                dim.OriginalName = dim.OriginalName;
+                dim.OriginalName = dimension.OriginalName;
 
                 dim.Colors.Clear();
                 if (selectedColors != null)

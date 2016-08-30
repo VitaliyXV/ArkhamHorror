@@ -43,6 +43,17 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
 
+        <dt>
+            Цвета Другого мира
+        </dt>
+        <dd>
+            <ul>
+                @foreach (var color in Model.Colors)
+                {
+                    <li>@color.LocalName</li>
+                }
+            </ul>
+        </dd>
     </dl>
 
     @using (Html.BeginForm()) {

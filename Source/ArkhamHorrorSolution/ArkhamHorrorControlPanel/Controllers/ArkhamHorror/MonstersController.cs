@@ -39,10 +39,10 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
         // GET: Monsters/Create
         public ActionResult Create()
         {
-            ViewBag.Dimension = new SelectList(db.Dimensions, "Id", "OriginalName");
-            ViewBag.GameExtention = new SelectList(db.GameExtentions, "Id", "OriginalName");
-            ViewBag.MonsterMoveType = new SelectList(db.MonsterMoveTypes, "Id", "OriginalName");
-            ViewBag.MonsterType = new SelectList(db.MonsterTypes, "Id", "OriginalName");
+            ViewBag.Dimension = new SelectList(db.Dimensions, "Id", "LocalName");
+            ViewBag.GameExtention = new SelectList(db.GameExtentions, "Id", "LocalName");
+            ViewBag.MonsterMoveType = new SelectList(db.MonsterMoveTypes, "Id", "LocalName");
+            ViewBag.MonsterType = new SelectList(db.MonsterTypes, "Id", "LocalName");
             return View();
         }
 
@@ -60,10 +60,10 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Dimension = new SelectList(db.Dimensions, "Id", "OriginalName", monster.Dimension);
-            ViewBag.GameExtention = new SelectList(db.GameExtentions, "Id", "OriginalName", monster.GameExtention);
-            ViewBag.MonsterMoveType = new SelectList(db.MonsterMoveTypes, "Id", "OriginalName", monster.MonsterMoveType);
-            ViewBag.MonsterType = new SelectList(db.MonsterTypes, "Id", "OriginalName", monster.MonsterType);
+            ViewBag.Dimension = new SelectList(db.Dimensions, "Id", "LocalName", monster.Dimension);
+            ViewBag.GameExtention = new SelectList(db.GameExtentions, "Id", "LocalName", monster.GameExtention);
+            ViewBag.MonsterMoveType = new SelectList(db.MonsterMoveTypes, "Id", "LocalName", monster.MonsterMoveType);
+            ViewBag.MonsterType = new SelectList(db.MonsterTypes, "Id", "LocalName", monster.MonsterType);
             return View(monster);
         }
 
@@ -79,10 +79,11 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
             {
                 return HttpNotFound();
             }
-            ViewBag.Dimension = new SelectList(db.Dimensions, "Id", "OriginalName", monster.Dimension);
-            ViewBag.GameExtention = new SelectList(db.GameExtentions, "Id", "OriginalName", monster.GameExtention);
-            ViewBag.MonsterMoveType = new SelectList(db.MonsterMoveTypes, "Id", "OriginalName", monster.MonsterMoveType);
-            ViewBag.MonsterType = new SelectList(db.MonsterTypes, "Id", "OriginalName", monster.MonsterType);
+            ViewBag.Dimension = new SelectList(db.Dimensions, "Id", "LocalName", monster.Dimension);
+            ViewBag.GameExtention = new SelectList(db.GameExtentions, "Id", "LocalName", monster.GameExtention);
+            ViewBag.MonsterMoveType = new SelectList(db.MonsterMoveTypes, "Id", "LocalName", monster.MonsterMoveType);
+            ViewBag.MonsterType = new SelectList(db.MonsterTypes, "Id", "LocalName", monster.MonsterType);
+            ViewBag.Abilities = db.Abilities;
             return View(monster);
         }
 
@@ -91,18 +92,45 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,OriginalName,LocalName,Description,GameExtention,MonsterMoveType,MonsterType,Dimension,Toughness,Awareness,HorrorRating,HorrorDamage,CombatRating,CombatDamage")] Monster monster)
+        public ActionResult Edit([Bind(Include = "Id,OriginalName,LocalName,Description,GameExtention,MonsterMoveType,MonsterType,Dimension,Toughness,Awareness,HorrorRating,HorrorDamage,CombatRating,CombatDamage")] Monster monster, int[] selectedAbilities)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(monster).State = EntityState.Modified;
+                //db.Entry(monster).State = EntityState.Modified;
+
+                var mon = db.Monsters.First(m => m.Id == monster.Id);
+
+                mon.Description = monster.Description;
+                mon.GameExtention = monster.GameExtention;
+                mon.LocalName = monster.LocalName;
+                mon.OriginalName = monster.OriginalName;
+                mon.Awareness = monster.Awareness;
+                mon.CombatDamage = monster.CombatDamage;
+                mon.CombatRating = monster.CombatRating;
+                mon.Dimension = monster.Dimension;
+                mon.HorrorDamage = monster.HorrorDamage;
+                mon.HorrorRating = monster.HorrorRating;
+                mon.MonsterMoveType = monster.MonsterMoveType;
+                mon.MonsterType = monster.MonsterType;
+                mon.Toughness = monster.Toughness;
+               
+                mon.Abilities.Clear();
+                if (selectedAbilities != null)
+                {
+                    //получаем выбранные свойства
+                    foreach (var c in db.Abilities.Where(a => selectedAbilities.Contains(a.Id)))
+                    {
+                        mon.Abilities.Add(c);
+                    }
+                }
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Dimension = new SelectList(db.Dimensions, "Id", "OriginalName", monster.Dimension);
-            ViewBag.GameExtention = new SelectList(db.GameExtentions, "Id", "OriginalName", monster.GameExtention);
-            ViewBag.MonsterMoveType = new SelectList(db.MonsterMoveTypes, "Id", "OriginalName", monster.MonsterMoveType);
-            ViewBag.MonsterType = new SelectList(db.MonsterTypes, "Id", "OriginalName", monster.MonsterType);
+            ViewBag.Dimension = new SelectList(db.Dimensions, "Id", "LocalName", monster.Dimension);
+            ViewBag.GameExtention = new SelectList(db.GameExtentions, "Id", "LocalName", monster.GameExtention);
+            ViewBag.MonsterMoveType = new SelectList(db.MonsterMoveTypes, "Id", "LocalName", monster.MonsterMoveType);
+            ViewBag.MonsterType = new SelectList(db.MonsterTypes, "Id", "LocalName", monster.MonsterType);
             return View(monster);
         }
 

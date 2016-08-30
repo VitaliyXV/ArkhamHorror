@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table" style="text-align:center">
     <tr>              
         <th>
             @Html.DisplayNameFor(model => model.OriginalName)
@@ -27,28 +27,31 @@
             Тип Монстра
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Toughness)
+            Стойкость
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Awareness)
+            Бдительность
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HorrorRating)
+            Рейтинг ужаса
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HorrorDamage)
+            Урон ужаса
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CombatRating)
+            Боевой рейтинг
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CombatDamage)
+            Боевой урон
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Dimension1.LocalName)
+            Особые свойства
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.GameExtention1.LocalName)
+            Родное измерение
+        </th>
+        <th>
+            Дополнение
         </th>
         <th></th>
     </tr>
@@ -87,6 +90,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CombatDamage)
+        </td>
+        <td>
+            @foreach (var ability in item.Abilities)
+            {
+                @ability.LocalName<br />
+            }
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Dimension1.LocalName)
