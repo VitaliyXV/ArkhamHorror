@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ArkhamHorrorLibrary.Model.Dimension>
+
+@{
+    ViewBag.Title = "Иные миры";
+}
+
+<h2>Иные миры</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Дополнение
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OriginalName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocalName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>Цвета Другого мира</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameExtention1.LocalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OriginalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+           <ul>
+               @foreach (var color in item.Colors)
+               {
+                   <li>@color.LocalName</li>
+               }
+           </ul>
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

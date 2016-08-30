@@ -1,0 +1,10 @@
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorSolution\ArkhamHorrorLibrary\bin\Debug\ArkhamHorrorLibrary.dll.config
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorSolution\ArkhamHorrorLibrary\bin\Debug\ArkhamHorrorLibrary.dll
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorSolution\ArkhamHorrorLibrary\bin\Debug\ArkhamHorrorLibrary.pdb
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorSolution\ArkhamHorrorLibrary\bin\Debug\EntityFramework.dll
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorSolution\ArkhamHorrorLibrary\bin\Debug\EntityFramework.SqlServer.dll
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorSolution\ArkhamHorrorLibrary\bin\Debug\EntityFramework.xml
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorSolution\ArkhamHorrorLibrary\bin\Debug\EntityFramework.SqlServer.xml
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorSolution\ArkhamHorrorLibrary\obj\Debug\ArkhamHorrorLibrary.csprojResolveAssemblyReference.cache
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorSolution\ArkhamHorrorLibrary\obj\Debug\ArkhamHorrorLibrary.dll
+E:\XVStudio\ArkhamHorrorRep\Source\ArkhamHorrorSolution\ArkhamHorrorLibrary\obj\Debug\ArkhamHorrorLibrary.pdb

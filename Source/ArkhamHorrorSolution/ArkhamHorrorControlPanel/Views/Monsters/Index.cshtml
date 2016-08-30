@@ -1,0 +1,105 @@
+﻿@model IEnumerable<ArkhamHorrorLibrary.Model.Monster>
+
+@{
+    ViewBag.Title = "Монстры";
+}
+
+<h2>Монстры</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>              
+        <th>
+            @Html.DisplayNameFor(model => model.OriginalName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocalName)
+        </th>
+        <!--th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th-->
+        <th>
+            Тип движения
+        </th>
+        <th>
+            Тип Монстра
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Toughness)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Awareness)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HorrorRating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HorrorDamage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CombatRating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CombatDamage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dimension1.LocalName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GameExtention1.LocalName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>         
+        <td>
+            @Html.DisplayFor(modelItem => item.OriginalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocalName)
+        </td>
+        <!--td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td-->
+        <td>
+            @Html.DisplayFor(modelItem => item.MonsterMoveType1.LocalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MonsterType1.LocalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Toughness)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Awareness)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorrorRating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorrorDamage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CombatRating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CombatDamage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dimension1.LocalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GameExtention1.LocalName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
