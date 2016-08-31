@@ -56,8 +56,6 @@ namespace ArkhamHorrorLibrary.Model
 
         public virtual MonsterType MonsterType1 { get; set; }
 
-        //public virtual int Value { get; set; }
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MonstersAmount> MonstersAmounts { get; set; }
 

@@ -22,11 +22,14 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Дополнения", "Index", "GameExtentions")</li>
-                    <li>@Html.ActionLink("Цвета Миров и Монстров", "Index", "Colors")</li>
+                    <li>@Html.ActionLink("Цвета Миров и Монстров", "Index", "Colors")</li>                    
+                    <li>@Html.ActionLink("Иные миры", "Index", "Dimensions")</li>                                     
+                </ul>
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Монстры", "Index", "Monsters")</li>
                     <li>@Html.ActionLink("Типы движения монстров", "Index", "MonsterMoveTypes")</li>
-                    <li>@Html.ActionLink("Иные миры", "Index", "Dimensions")</li>
                     <li>@Html.ActionLink("Свойства монстров", "Index", "Abilities")</li>
-                    <li>@Html.ActionLink("Монстры", "Index", "Monsters")</li>                    
+                    <li>@Html.ActionLink("Типы Монстров", "Index", "MonsterTypes")</li>   
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
