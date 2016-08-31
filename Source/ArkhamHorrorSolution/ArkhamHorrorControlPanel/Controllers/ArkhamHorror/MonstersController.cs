@@ -83,7 +83,7 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
             ViewBag.GameExtention = new SelectList(db.GameExtentions, "Id", "LocalName", monster.GameExtention);
             ViewBag.MonsterMoveType = new SelectList(db.MonsterMoveTypes, "Id", "LocalName", monster.MonsterMoveType);
             ViewBag.MonsterType = new SelectList(db.MonsterTypes, "Id", "LocalName", monster.MonsterType);
-            ViewBag.Abilities = db.Abilities;
+            ViewBag.MonstersAbilities = db.MonstersAbilities;
             return View(monster);
         }
 
@@ -92,7 +92,8 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,OriginalName,LocalName,Description,GameExtention,MonsterMoveType,MonsterType,Dimension,Toughness,Awareness,HorrorRating,HorrorDamage,CombatRating,CombatDamage")] Monster monster, int[] selectedAbilities)
+        public ActionResult Edit([Bind(Include = "Id,OriginalName,LocalName,Description,GameExtention,MonsterMoveType,MonsterType,Dimension,Toughness,Awareness,HorrorRating,HorrorDamage,CombatRating,CombatDamage")] Monster monster,
+            int[] selectedAbilities, int[] abilityValues)
         {
             if (ModelState.IsValid)
             {
@@ -113,15 +114,22 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
                 mon.MonsterMoveType = monster.MonsterMoveType;
                 mon.MonsterType = monster.MonsterType;
                 mon.Toughness = monster.Toughness;
-               
-                mon.Abilities.Clear();
+
+                mon.MonstersAbilities.Clear();
                 if (selectedAbilities != null)
                 {
-                    //получаем выбранные свойства
-                    foreach (var c in db.Abilities.Where(a => selectedAbilities.Contains(a.Id)))
+                    int index = 0;
+                    var v = abilityValues;
+                    foreach (var ab in selectedAbilities)
                     {
-                        mon.Abilities.Add(c);
+
                     }
+                    ////получаем выбранные свойства
+                    //foreach (var c in db.Abilities.Where(a => selectedAbilities.Contains(a.Id)))
+                    //{
+                    //    var val = abilityValues.First(v => v == )
+                    //    mon.MonstersAbilities.Add(new MonstersAbility() { Ability = c.Id, Value = sle });
+                    //}
                 }
 
                 db.SaveChanges();

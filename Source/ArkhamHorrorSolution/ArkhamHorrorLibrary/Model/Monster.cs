@@ -12,7 +12,7 @@ namespace ArkhamHorrorLibrary.Model
         public Monster()
         {
             MonstersAmounts = new HashSet<MonstersAmount>();
-            Abilities = new HashSet<Ability>();
+            MonstersAbilities = new HashSet<MonstersAbility>();
         }
 
         public int Id { get; set; }
@@ -60,6 +60,6 @@ namespace ArkhamHorrorLibrary.Model
         public virtual ICollection<MonstersAmount> MonstersAmounts { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ability> Abilities { get; set; }
+        public virtual ICollection<MonstersAbility> MonstersAbilities { get; set; }
     }
 }

@@ -92,9 +92,16 @@
             @Html.DisplayFor(modelItem => item.CombatDamage)
         </td>
         <td>
-            @foreach (var ability in item.Abilities)
+            @foreach (var ability in item.MonstersAbilities)
             {
-                @ability.LocalName;<br />
+                @ability.Ability1.LocalName;
+                
+                if (ability.Value > 0)
+                {
+                    <span>&nbsp;</span>
+                    @ability.Value
+                }
+                <br />
             }
         </td>
         <td>

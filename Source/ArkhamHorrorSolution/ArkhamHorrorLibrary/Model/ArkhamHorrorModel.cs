@@ -19,14 +19,16 @@ namespace ArkhamHorrorLibrary.Model
         public virtual DbSet<MonsterMoveType> MonsterMoveTypes { get; set; }
         public virtual DbSet<Monster> Monsters { get; set; }
         public virtual DbSet<MonsterType> MonsterTypes { get; set; }
+        public virtual DbSet<MonstersAbility> MonstersAbilities { get; set; }
         public virtual DbSet<MonstersAmount> MonstersAmounts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Ability>()
-                .HasMany(e => e.Monsters)
-                .WithMany(e => e.Abilities)
-                .Map(m => m.ToTable("MonstersAbilities").MapLeftKey("Ability").MapRightKey("Monster"));
+                .HasMany(e => e.MonstersAbilities)
+                .WithRequired(e => e.Ability1)
+                .HasForeignKey(e => e.Ability)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Color>()
                 .HasMany(e => e.MonsterMoveTypes)
@@ -71,6 +73,12 @@ namespace ArkhamHorrorLibrary.Model
 
             modelBuilder.Entity<Monster>()
                 .HasMany(e => e.MonstersAmounts)
+                .WithRequired(e => e.Monster1)
+                .HasForeignKey(e => e.Monster)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Monster>()
+                .HasMany(e => e.MonstersAbilities)
                 .WithRequired(e => e.Monster1)
                 .HasForeignKey(e => e.Monster)
                 .WillCascadeOnDelete(false);

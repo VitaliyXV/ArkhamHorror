@@ -11,7 +11,7 @@ namespace ArkhamHorrorLibrary.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Ability()
         {
-            Monsters = new HashSet<Monster>();
+            MonstersAbilities = new HashSet<MonstersAbility>();
         }
 
         public int Id { get; set; }
@@ -28,6 +28,6 @@ namespace ArkhamHorrorLibrary.Model
         public string Description { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Monster> Monsters { get; set; }
+        public virtual ICollection<MonstersAbility> MonstersAbilities { get; set; }
     }
 }

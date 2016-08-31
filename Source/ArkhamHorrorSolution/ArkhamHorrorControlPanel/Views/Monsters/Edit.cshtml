@@ -122,14 +122,24 @@
         </div>
         
         <div class="form-group">
-            @Html.LabelFor(model => model.Abilities, "Особые свойства", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.MonstersAbilities, "Особые свойства", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @foreach (var c in ViewBag.Abilities)
-                {
-                    <input type="checkbox" name="selectedAbilities" value="@c.Id"
-                           @(Model.Abilities.Contains(c) ? "checked=\"checked\"" : "") />@c.LocalName<br />
-                }
-                @Html.ValidationMessageFor(model => model.Abilities, "", new { @class = "text-danger" })
+                <table>
+                    @foreach (var c in ViewBag.MonstersAbilities)
+                    {
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="selectedAbilities" value="@c.Ability1.Id"
+                                       @(Model.MonstersAbilities.Contains(c) ? "checked=\"checked\"" : "") />@c.Ability1.LocalName
+                                </td>
+                            <td>
+                                <input type="text" name="abilityValues" value="@c.Value" />
+                            </td>
+                            </tr>
+                    }
+                    @Html.ValidationMessageFor(model => model.MonstersAbilities, "", new { @class = "text-danger" })
+                </table>
+
             </div>
         </div>
 
