@@ -118,18 +118,11 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
                 mon.MonstersAbilities.Clear();
                 if (selectedAbilities != null)
                 {
-                    int index = 0;
                     var v = abilityValues;
                     foreach (var ab in selectedAbilities)
                     {
-
+                        var val = abilityValues[ab];
                     }
-                    ////получаем выбранные свойства
-                    //foreach (var c in db.Abilities.Where(a => selectedAbilities.Contains(a.Id)))
-                    //{
-                    //    var val = abilityValues.First(v => v == )
-                    //    mon.MonstersAbilities.Add(new MonstersAbility() { Ability = c.Id, Value = sle });
-                    //}
                 }
 
                 db.SaveChanges();
