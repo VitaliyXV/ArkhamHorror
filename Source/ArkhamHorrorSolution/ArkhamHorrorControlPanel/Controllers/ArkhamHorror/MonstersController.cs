@@ -83,8 +83,23 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
             ViewBag.GameExtention = new SelectList(db.GameExtentions, "Id", "LocalName", monster.GameExtention);
             ViewBag.MonsterMoveType = new SelectList(db.MonsterMoveTypes, "Id", "LocalName", monster.MonsterMoveType);
             ViewBag.MonsterType = new SelectList(db.MonsterTypes, "Id", "LocalName", monster.MonsterType);
-            ViewBag.MonstersAbilities = db.MonstersAbilities;
+
+            var abilities = new List<Abil>();
+            foreach (var abil in db.Abilities)
+            {
+                var ab = monster.MonstersAbilities.FirstOrDefault(a => a.Ability == abil.Id);
+                abilities.Add(new Abil() { Ability = abil, IsEnabled = ab != null, Value = ab == null ? 0 : ab.Value });
+            }
+
+            ViewBag.Abilities = abilities;
             return View(monster);
+        }
+
+        public class Abil
+        {
+            public bool IsEnabled { get; set; }
+            public Ability Ability { get; set; }
+            public int Value { get; set; }
         }
 
         // POST: Monsters/Edit/5
@@ -93,7 +108,7 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,OriginalName,LocalName,Description,GameExtention,MonsterMoveType,MonsterType,Dimension,Toughness,Awareness,HorrorRating,HorrorDamage,CombatRating,CombatDamage")] Monster monster,
-            int[] selectedAbilities, int[] abilityValues)
+            List<Abil> selectedAbilities)
         {
             if (ModelState.IsValid)
             {
@@ -118,11 +133,11 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
                 mon.MonstersAbilities.Clear();
                 if (selectedAbilities != null)
                 {
-                    var v = abilityValues;
-                    foreach (var ab in selectedAbilities)
-                    {
-                        var val = abilityValues[ab];
-                    }
+                    //var v = abilityValues;
+                    //foreach (var ab in selectedAbilities)
+                    //{
+                    //    var val = abilityValues[ab];
+                    //}
                 }
 
                 db.SaveChanges();
@@ -132,6 +147,7 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
             ViewBag.GameExtention = new SelectList(db.GameExtentions, "Id", "LocalName", monster.GameExtention);
             ViewBag.MonsterMoveType = new SelectList(db.MonsterMoveTypes, "Id", "LocalName", monster.MonsterMoveType);
             ViewBag.MonsterType = new SelectList(db.MonsterTypes, "Id", "LocalName", monster.MonsterType);
+            
             return View(monster);
         }
 

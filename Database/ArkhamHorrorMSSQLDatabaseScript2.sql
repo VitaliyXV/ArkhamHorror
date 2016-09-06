@@ -130,4 +130,4 @@ insert into MonstersAbilities (Monster, Ability, Value) values (1, 1, 1);
 
 ---------------------------------------
 
-select * from monsters;
+select * from MonstersAbilities;

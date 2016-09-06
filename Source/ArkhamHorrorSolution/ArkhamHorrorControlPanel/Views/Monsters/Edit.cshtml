@@ -125,17 +125,18 @@
             @Html.LabelFor(model => model.MonstersAbilities, "Особые свойства", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <table>
-                    @foreach (var c in ViewBag.MonstersAbilities)
+                    @for (var i = 0; i < ViewBag.Abilities.Count; i++)
                     {
                         <tr>
                             <td>
-                                <input type="checkbox" name="selectedAbilities" value="@c.Ability1.Id"
-                                       @(Model.MonstersAbilities.Contains(c) ? "checked=\"checked\"" : "") />@c.Ability1.LocalName
-                                </td>
-                            <td>
-                                <input type="text" name="abilityValues" value="@c.Value" />
+                                <input type="hidden" name="@("selectedAbilities[" + i + "].Ability.Id")" value="@ViewBag.Abilities[i].Ability.Id" />
+                                <input type="checkbox" name="@("selectedAbilities[" + i + "].IsEnabled")" value="@ViewBag.Abilities[i].IsEnabled" onchange="@(ViewBag.Abilities[i].IsEnabled = !ViewBag.Abilities[i].IsEnabled)"
+                                       @(ViewBag.Abilities[i].IsEnabled ? "checked=\"checked\"" : "") />@ViewBag.Abilities[i].Ability.LocalName
                             </td>
-                            </tr>
+                            <td>
+                                <input type="text" name="@("selectedAbilities[" + i + "].Value")" value="@ViewBag.Abilities[i].Value" />
+                            </td>
+                        </tr>
                     }
                     @Html.ValidationMessageFor(model => model.MonstersAbilities, "", new { @class = "text-danger" })
                 </table>
