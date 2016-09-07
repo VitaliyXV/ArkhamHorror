@@ -58,20 +58,19 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
                 return RedirectToAction("Index");
             }
 
-            ViewBag.GameExtention = new SelectList(db.GameExtentions, "Id", "OriginalName", monstersAmount.GameExtention);
-            ViewBag.Monster = new SelectList(db.Monsters, "Id", "OriginalName", monstersAmount.Monster);
+            ViewBag.GameExtention = new SelectList(db.GameExtentions, "Id", "LocalName", monstersAmount.GameExtention);
+            ViewBag.Monster = new SelectList(db.Monsters, "Id", "LocalName", monstersAmount.Monster);
             return View(monstersAmount);
         }
 
         // GET: MonstersAmounts/Edit/5
-        public ActionResult Edit(int? id, int? idExt)
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            MonstersAmount monstersAmount = db.MonstersAmounts.FirstOrDefault(m => m.Monster == id && m.GameExtention == idExt);
+            MonstersAmount monstersAmount = db.MonstersAmounts.Find(id);
             if (monstersAmount == null)
             {
                 return HttpNotFound();
@@ -86,17 +85,16 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Monster,GameExtention,Amount")] MonstersAmount monstersAmount)
+        public ActionResult Edit([Bind(Include = "Id,Monster,GameExtention,Amount")] MonstersAmount monstersAmount)
         {
             if (ModelState.IsValid)
             {
-                var ma = db.MonstersAmounts.Find(monstersAmount);
                 db.Entry(monstersAmount).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.GameExtention = new SelectList(db.GameExtentions, "Id", "OriginalName", monstersAmount.GameExtention);
-            ViewBag.Monster = new SelectList(db.Monsters, "Id", "OriginalName", monstersAmount.Monster);
+            ViewBag.GameExtention = new SelectList(db.GameExtentions, "Id", "LocalName", monstersAmount.GameExtention);
+            ViewBag.Monster = new SelectList(db.Monsters, "Id", "LocalName", monstersAmount.Monster);
             return View(monstersAmount);
         }
 

@@ -9,19 +9,12 @@ namespace ArkhamHorrorLibrary.Model
     [Table("MonstersAmount")]
     public partial class MonstersAmount
     {
-        [Key]
-        [Column(Order = 0)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int Id { get; set; }
+
         public int Monster { get; set; }
 
-        [Key]
-        [Column(Order = 1)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int GameExtention { get; set; }
 
-        [Key]
-        [Column(Order = 2)]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int Amount { get; set; }
 
         public virtual GameExtention GameExtention1 { get; set; }

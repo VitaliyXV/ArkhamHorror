@@ -1,4 +1,7 @@
-﻿use ArkhamHorror;
+﻿SERVER ADDRESS: http://arkhamhorrorcontrolpanel.azurewebsites.net/
+
+
+use ArkhamHorror;
 -----------------------------
 --drop table MonstersAbilities;
 --drop table MonstersAmount;
@@ -89,13 +92,14 @@ create table Monsters
 
 create table MonstersAmount
 (
+	Id int primary key identity,
 	Monster int foreign key references monsters(id) not null,
 	GameExtention int foreign key references GameExtentions(id) not null,
 	Amount int default 0 not null
 );
 
 create table MonstersAbilities
-(
+(	
 	Monster int foreign key references Monsters(id) not null,
 	Ability int foreign key references Abilities(id) not null,
 	Value int not null default 0
@@ -130,4 +134,5 @@ insert into MonstersAbilities (Monster, Ability, Value) values (1, 1, 1);
 
 ---------------------------------------
 
+select * from MonstersAmount;
 select * from MonstersAbilities;

@@ -18,9 +18,9 @@ namespace ArkhamHorrorLibrary.Model
         public virtual DbSet<GameExtention> GameExtentions { get; set; }
         public virtual DbSet<MonsterMoveType> MonsterMoveTypes { get; set; }
         public virtual DbSet<Monster> Monsters { get; set; }
+        public virtual DbSet<MonstersAmount> MonstersAmounts { get; set; }
         public virtual DbSet<MonsterType> MonsterTypes { get; set; }
         public virtual DbSet<MonstersAbility> MonstersAbilities { get; set; }
-        public virtual DbSet<MonstersAmount> MonstersAmounts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
