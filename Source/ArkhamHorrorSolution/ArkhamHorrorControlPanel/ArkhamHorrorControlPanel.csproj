@@ -173,6 +173,7 @@
     <Compile Include="Controllers\ArkhamHorror\DimensionsController.cs" />
     <Compile Include="Controllers\ArkhamHorror\GameExtentionsController.cs" />
     <Compile Include="Controllers\ArkhamHorror\MonsterMoveTypesController.cs" />
+    <Compile Include="Controllers\ArkhamHorror\MonstersAmountsController.cs" />
     <Compile Include="Controllers\ArkhamHorror\MonstersController.cs" />
     <Compile Include="Controllers\ArkhamHorror\MonsterTypesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -287,6 +288,11 @@
     <Content Include="Views\MonsterTypes\Details.cshtml" />
     <Content Include="Views\MonsterTypes\Edit.cshtml" />
     <Content Include="Views\MonsterTypes\Index.cshtml" />
+    <Content Include="Views\MonstersAmounts\Create.cshtml" />
+    <Content Include="Views\MonstersAmounts\Delete.cshtml" />
+    <Content Include="Views\MonstersAmounts\Details.cshtml" />
+    <Content Include="Views\MonstersAmounts\Edit.cshtml" />
+    <Content Include="Views\MonstersAmounts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
