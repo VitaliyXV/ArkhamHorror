@@ -129,8 +129,7 @@
                     {
                         <tr>
                             <td>
-                                <input type="hidden" name="@("selectedAbilities[" + i + "].Ability.Id")" value="@ViewBag.Abilities[i].Ability.Id" />
-                                <input type="checkbox" name="@("selectedAbilities[" + i + "].IsEnabled")" value="@ViewBag.Abilities[i].IsEnabled" onchange="@(ViewBag.Abilities[i].IsEnabled = !ViewBag.Abilities[i].IsEnabled)"
+                                <input type="checkbox" name="@("selectedAbilities[" + i + "].Ability.Id")" value="@ViewBag.Abilities[i].Ability.Id" 
                                        @(ViewBag.Abilities[i].IsEnabled ? "checked=\"checked\"" : "") />@ViewBag.Abilities[i].Ability.LocalName
                             </td>
                             <td>

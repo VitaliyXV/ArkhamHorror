@@ -84,18 +84,18 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
             ViewBag.MonsterMoveType = new SelectList(db.MonsterMoveTypes, "Id", "LocalName", monster.MonsterMoveType);
             ViewBag.MonsterType = new SelectList(db.MonsterTypes, "Id", "LocalName", monster.MonsterType);
 
-            var abilities = new List<Abil>();
+            var abilities = new List<CurrentAbility>();
             foreach (var abil in db.Abilities)
             {
                 var ab = monster.MonstersAbilities.FirstOrDefault(a => a.Ability == abil.Id);
-                abilities.Add(new Abil() { Ability = abil, IsEnabled = ab != null, Value = ab == null ? 0 : ab.Value });
+                abilities.Add(new CurrentAbility() { Ability = abil, IsEnabled = ab != null, Value = ab == null ? 0 : ab.Value });
             }
 
             ViewBag.Abilities = abilities;
             return View(monster);
         }
 
-        public class Abil
+        public class CurrentAbility
         {
             public bool IsEnabled { get; set; }
             public Ability Ability { get; set; }
@@ -108,9 +108,9 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,OriginalName,LocalName,Description,GameExtention,MonsterMoveType,MonsterType,Dimension,Toughness,Awareness,HorrorRating,HorrorDamage,CombatRating,CombatDamage")] Monster monster,
-            List<Abil> selectedAbilities)
+            List<CurrentAbility> selectedAbilities)
         {
-            if (ModelState.IsValid)
+            //if (ModelState.IsValid)
             {
                 //db.Entry(monster).State = EntityState.Modified;
 
@@ -131,13 +131,14 @@ namespace ArkhamHorrorControlPanel.Controllers.ArkhamHorror
                 mon.Toughness = monster.Toughness;
 
                 mon.MonstersAbilities.Clear();
-                if (selectedAbilities != null)
+                foreach (var a in selectedAbilities.Where(a=>a.Ability != null))
                 {
-                    //var v = abilityValues;
-                    //foreach (var ab in selectedAbilities)
-                    //{
-                    //    var val = abilityValues[ab];
-                    //}
+                    mon.MonstersAbilities.Add(new MonstersAbility()
+                    {
+                        Ability = a.Ability.Id,
+                        Monster = monster.Id,
+                        Value = a.Value
+                    });
                 }
 
                 db.SaveChanges();

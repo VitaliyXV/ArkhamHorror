@@ -3,4 +3,7 @@
   <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ArkhamHorrorControlPanel-20160823105742.mdf;Initial Catalog=aspnet-ArkhamHorrorControlPanel-20160823105742;Integrated Security=True" tags="SqlConnectionString">
     <parameterEntry kind="XmlFile" scope="E:\\XVStudio\\ArkhamHorrorRep\\Source\\ArkhamHorrorSolution\\ArkhamHorrorControlPanel\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
   </parameter>
+  <parameter name="ArkhamHorrorModelSettings-Web.config Connection String" description="ArkhamHorrorModelSettings Connection String used in web.config by the application to access the database." defaultValue="data source=xv.database.windows.net;initial catalog=ArkhamHorror;persist security info=True;user id=xv;password=x18%epoc;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="E:\\XVStudio\\ArkhamHorrorRep\\Source\\ArkhamHorrorSolution\\ArkhamHorrorControlPanel\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ArkhamHorrorModelSettings']/@connectionString" />
+  </parameter>
 </parameters>
