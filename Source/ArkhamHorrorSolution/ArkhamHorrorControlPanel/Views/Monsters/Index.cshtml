@@ -10,7 +10,8 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table" style="text-align:center">
-    <tr>              
+    <tr>        
+        <th>Image</th>      
         <th>
             @Html.DisplayNameFor(model => model.OriginalName)
         </th>
@@ -58,6 +59,9 @@
 
 @foreach (var item in Model) {
     <tr>         
+        <td>
+            <img src="~/Content/Images/Premium Figures/Monsters/@(item.OriginalName).png" width="80" />
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.OriginalName)
         </td>

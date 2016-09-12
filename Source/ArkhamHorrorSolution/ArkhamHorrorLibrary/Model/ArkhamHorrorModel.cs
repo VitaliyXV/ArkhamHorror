@@ -13,21 +13,36 @@ namespace ArkhamHorrorLibrary.Model
         }
 
         public virtual DbSet<Ability> Abilities { get; set; }
+        public virtual DbSet<AncientOne> AncientOnes { get; set; }
         public virtual DbSet<Color> Colors { get; set; }
         public virtual DbSet<Dimension> Dimensions { get; set; }
         public virtual DbSet<GameExtention> GameExtentions { get; set; }
+        public virtual DbSet<Herald> Heralds { get; set; }
         public virtual DbSet<MonsterMoveType> MonsterMoveTypes { get; set; }
         public virtual DbSet<Monster> Monsters { get; set; }
         public virtual DbSet<MonstersAmount> MonstersAmounts { get; set; }
         public virtual DbSet<MonsterType> MonsterTypes { get; set; }
+        public virtual DbSet<AncientOnesAbility> AncientOnesAbilities { get; set; }
         public virtual DbSet<MonstersAbility> MonstersAbilities { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Ability>()
+                .HasMany(e => e.AncientOnesAbilities)
+                .WithRequired(e => e.Ability1)
+                .HasForeignKey(e => e.Ability)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Ability>()
                 .HasMany(e => e.MonstersAbilities)
                 .WithRequired(e => e.Ability1)
                 .HasForeignKey(e => e.Ability)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<AncientOne>()
+                .HasMany(e => e.AncientOnesAbilities)
+                .WithRequired(e => e.AncientOne1)
+                .HasForeignKey(e => e.AncientOne)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Color>()
@@ -48,7 +63,19 @@ namespace ArkhamHorrorLibrary.Model
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<GameExtention>()
+                .HasMany(e => e.AncientOnes)
+                .WithRequired(e => e.GameExtention1)
+                .HasForeignKey(e => e.GameExtention)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<GameExtention>()
                 .HasMany(e => e.Dimensions)
+                .WithRequired(e => e.GameExtention1)
+                .HasForeignKey(e => e.GameExtention)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<GameExtention>()
+                .HasMany(e => e.Heralds)
                 .WithRequired(e => e.GameExtention1)
                 .HasForeignKey(e => e.GameExtention)
                 .WillCascadeOnDelete(false);

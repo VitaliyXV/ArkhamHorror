@@ -11,7 +11,9 @@ namespace ArkhamHorrorLibrary.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public GameExtention()
         {
+            AncientOnes = new HashSet<AncientOne>();
             Dimensions = new HashSet<Dimension>();
+            Heralds = new HashSet<Herald>();
             Monsters = new HashSet<Monster>();
             MonstersAmounts = new HashSet<MonstersAmount>();
         }
@@ -32,7 +34,13 @@ namespace ArkhamHorrorLibrary.Model
         public int ReleaseYear { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AncientOne> AncientOnes { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dimension> Dimensions { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Herald> Heralds { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Monster> Monsters { get; set; }

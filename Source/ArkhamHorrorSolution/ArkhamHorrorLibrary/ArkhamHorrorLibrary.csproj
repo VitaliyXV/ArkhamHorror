@@ -52,10 +52,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Ability.cs" />
+    <Compile Include="Model\AncientOne.cs" />
+    <Compile Include="Model\AncientOnesAbility.cs" />
     <Compile Include="Model\ArkhamHorrorModel.cs" />
     <Compile Include="Model\Color.cs" />
     <Compile Include="Model\Dimension.cs" />
     <Compile Include="Model\GameExtention.cs" />
+    <Compile Include="Model\Herald.cs" />
     <Compile Include="Model\Monster.cs" />
     <Compile Include="Model\MonsterMoveType.cs" />
     <Compile Include="Model\MonstersAbility.cs" />

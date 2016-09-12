@@ -3,6 +3,8 @@
 
 use ArkhamHorror;
 -----------------------------
+--drop table AncientOnesAbilities;
+--drop table MonstersAbilities;
 --drop table MonstersAbilities;
 --drop table MonstersAmount;
 --drop table Monsters;
@@ -103,6 +105,36 @@ create table MonstersAbilities
 	Monster int foreign key references Monsters(id) not null,
 	Ability int foreign key references Abilities(id) not null,
 	Value int not null default 0
+);
+
+create table AncientOnes
+(
+	Id int primary key identity,
+	OriginalName nvarchar(50) not null,
+	LocalName nvarchar(50) not null,
+	[Description] nvarchar(1000) default '',
+	GameExtention int foreign key references GameExtentions(id) not null,
+	Worshippers nvarchar(500) default '',	-- последователи
+	AncientPower nvarchar(500) default '',	-- сила
+	Attack nvarchar(500) default '',		-- атака
+	CombatRating int default 0 not null,	-- боевой рейтинг
+	DoomTrack int default 0 not null		-- трек безысходности
+);
+
+create table AncientOnesAbilities
+(	
+	AncientOne int foreign key references AncientOnes(id) not null,
+	Ability int foreign key references Abilities(id) not null,
+	Value int not null default 0
+);
+
+create table Heralds
+(
+	Id int primary key identity,
+	OriginalName nvarchar(50) not null,
+	LocalName nvarchar(50) not null,
+	[Description] nvarchar(max) default '',
+	GameExtention int foreign key references GameExtentions(id) not null
 );
 
 ---------------------------------------

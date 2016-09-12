@@ -169,9 +169,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ArkhamHorror\AbilitiesController.cs" />
+    <Compile Include="Controllers\ArkhamHorror\AncientOnesController.cs" />
     <Compile Include="Controllers\ArkhamHorror\ColorsController.cs" />
     <Compile Include="Controllers\ArkhamHorror\DimensionsController.cs" />
     <Compile Include="Controllers\ArkhamHorror\GameExtentionsController.cs" />
+    <Compile Include="Controllers\ArkhamHorror\HeraldsController.cs" />
     <Compile Include="Controllers\ArkhamHorror\MonsterMoveTypesController.cs" />
     <Compile Include="Controllers\ArkhamHorror\MonstersAmountsController.cs" />
     <Compile Include="Controllers\ArkhamHorror\MonstersController.cs" />
@@ -293,6 +295,16 @@
     <Content Include="Views\MonstersAmounts\Details.cshtml" />
     <Content Include="Views\MonstersAmounts\Edit.cshtml" />
     <Content Include="Views\MonstersAmounts\Index.cshtml" />
+    <Content Include="Views\AncientOnes\Create.cshtml" />
+    <Content Include="Views\AncientOnes\Delete.cshtml" />
+    <Content Include="Views\AncientOnes\Details.cshtml" />
+    <Content Include="Views\AncientOnes\Edit.cshtml" />
+    <Content Include="Views\AncientOnes\Index.cshtml" />
+    <Content Include="Views\Heralds\Create.cshtml" />
+    <Content Include="Views\Heralds\Delete.cshtml" />
+    <Content Include="Views\Heralds\Details.cshtml" />
+    <Content Include="Views\Heralds\Edit.cshtml" />
+    <Content Include="Views\Heralds\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

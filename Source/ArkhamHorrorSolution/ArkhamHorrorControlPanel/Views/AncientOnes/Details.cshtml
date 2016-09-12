@@ -1,0 +1,90 @@
+﻿@model ArkhamHorrorLibrary.Model.AncientOne
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>AncientOne</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GameExtention1.OriginalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameExtention1.OriginalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OriginalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OriginalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Worshippers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Worshippers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AncientPower)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AncientPower)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Attack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Attack)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CombatRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CombatRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoomTrack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoomTrack)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

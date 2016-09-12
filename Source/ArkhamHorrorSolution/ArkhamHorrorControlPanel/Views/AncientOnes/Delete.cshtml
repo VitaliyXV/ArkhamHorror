@@ -1,0 +1,96 @@
+﻿@model ArkhamHorrorLibrary.Model.AncientOne
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>AncientOne</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GameExtention1.OriginalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GameExtention1.OriginalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OriginalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OriginalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocalName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Worshippers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Worshippers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AncientPower)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AncientPower)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Attack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Attack)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CombatRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CombatRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DoomTrack)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DoomTrack)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

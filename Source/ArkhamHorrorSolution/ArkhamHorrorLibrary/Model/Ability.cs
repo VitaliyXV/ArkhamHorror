@@ -11,6 +11,7 @@ namespace ArkhamHorrorLibrary.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Ability()
         {
+            AncientOnesAbilities = new HashSet<AncientOnesAbility>();
             MonstersAbilities = new HashSet<MonstersAbility>();
         }
 
@@ -26,6 +27,9 @@ namespace ArkhamHorrorLibrary.Model
 
         [StringLength(1000)]
         public string Description { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AncientOnesAbility> AncientOnesAbilities { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MonstersAbility> MonstersAbilities { get; set; }

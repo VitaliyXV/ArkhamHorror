@@ -1,0 +1,98 @@
+﻿@model IEnumerable<ArkhamHorrorLibrary.Model.AncientOne>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>       
+        <th>
+            @Html.DisplayNameFor(model => model.OriginalName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LocalName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            Последователи
+        </th>
+        <th>
+            Сила
+        </th>
+        <th>
+            Атака
+        </th>
+        <th>
+            Боевой рейтинг
+        </th>
+        <th>
+            Трек безысходности
+        </th>
+        <th>
+            Особые свойства
+        </th>
+        <th>
+            Дополнение
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.OriginalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LocalName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Worshippers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AncientPower)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Attack)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CombatRating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DoomTrack)
+        </td>
+        <td>
+            @foreach (var ability in item.AncientOnesAbilities)
+            {
+                @ability.Ability1.LocalName;
+
+                if (ability.Value > 0)
+                {
+                    <span>&nbsp;</span>
+                    @ability.Value
+                }
+                <br />
+            }
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.GameExtention1.LocalName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
