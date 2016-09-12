@@ -31,9 +31,14 @@
                     <li>@Html.ActionLink("Свойства монстров", "Index", "Abilities")</li>
                     <li>@Html.ActionLink("Типы Монстров", "Index", "MonsterTypes")</li>  
                     <li>@Html.ActionLink("Количество Монстров", "Index", "MonstersAmounts")</li> 
+                     
                 </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Древние", "Index", "AncientOnes")</li>
+                    <li>@Html.ActionLink("Вестники", "Index", "Heralds")</li>
+                </ul>
+    @Html.Partial("_LoginPartial")
+</div>
         </div>
     </div>
     <div class="container body-content">

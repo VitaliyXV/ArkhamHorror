@@ -81,8 +81,8 @@ namespace ArkhamHorrorControlPanel.Controllers
                 HorrorDamage = m.HorrorDamage,
                 CombatRating = m.CombatRating,
                 CombatDamage = m.CombatDamage,
-                MonstersAbilities = m.MonstersAbilities.Select(a => new { AbilityId = a.Ability, Value = a.Value}),
-                MonstersAmounts = m.MonstersAmounts.Select(c => new { ExtentionId = c.GameExtention, Amount = c.Amount})
+                MonstersAbilities = m.MonstersAbilities.Select(a => new { Id = a.Ability, Value = a.Value}),
+                MonstersAmounts = m.MonstersAmounts.Select(c => new { Id = c.GameExtention, Amount = c.Amount})
             }), JsonRequestBehavior.AllowGet);
         }
 
@@ -106,6 +106,36 @@ namespace ArkhamHorrorControlPanel.Controllers
                 LocalName = m.LocalName,
                 OriginalName = m.OriginalName,
                 Description = m.Description
+            }), JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult AncientOnes()
+        {
+            return Json(db.AncientOnes.Select(m => new
+            {
+                Id = m.Id,
+                LocalName = m.LocalName,
+                OriginalName = m.OriginalName,
+                Description = m.Description,
+                GameExtention = m.GameExtention,
+                AncientPower = m.AncientPower,
+                Attack = m.Attack,
+                CombatRating = m.CombatRating,
+                DoomTrack = m.DoomTrack,
+                Worshippers = m.Worshippers,
+                AncientOnesAbilities = m.AncientOnesAbilities.Select(a => new { Id = a.Ability, Value = a.Value })
+            }), JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult Heralds()
+        {
+            return Json(db.Heralds.Select(h => new
+            {
+                Id = h.Id,
+                LocalName = h.LocalName,
+                OriginalName = h.OriginalName,
+                Description = h.Description,
+                GameExtention = h.GameExtention
             }), JsonRequestBehavior.AllowGet);
         }
 
