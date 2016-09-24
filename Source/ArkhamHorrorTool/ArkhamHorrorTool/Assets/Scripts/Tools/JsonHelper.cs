@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System;
 
-namespace ArkhamHorror.Tools
+namespace Assets.Scripts.Tools
 {
     public static class JsonHelper
     {
@@ -14,7 +14,7 @@ namespace ArkhamHorror.Tools
         public static List<T> FromJsonToList<T>(string json)
         {
             var data = "{\"Items\":" + json + "}";
-            Wrapper<T> wrapper = JsonUtility.FromJson<Wrapper<T>>(data);
+            var wrapper = JsonUtility.FromJson<Wrapper<T>>(data);
             return wrapper.Items;
         }
 

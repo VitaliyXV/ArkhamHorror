@@ -65,11 +65,11 @@ namespace ArkhamHorrorControlPanel.Controllers
 
         public JsonResult Monsters()
         {
-            return Json(db.Monsters.Select(m=> new
+            return Json(db.Monsters.Select(m => new
             {
-                Id=m.Id,
+                Id = m.Id,
                 LocalName = m.LocalName,
-                OriginalName = m.OriginalName, 
+                OriginalName = m.OriginalName,
                 Description = m.Description,
                 GameExtention = m.GameExtention,
                 MonsterMoveType = m.MonsterMoveType,
@@ -81,8 +81,8 @@ namespace ArkhamHorrorControlPanel.Controllers
                 HorrorDamage = m.HorrorDamage,
                 CombatRating = m.CombatRating,
                 CombatDamage = m.CombatDamage,
-                MonstersAbilities = m.MonstersAbilities.Select(a => new { Id = a.Ability, Value = a.Value}),
-                MonstersAmounts = m.MonstersAmounts.Select(c => new { Id = c.GameExtention, Amount = c.Amount})
+                MonstersAbilities = m.MonstersAbilities.Select(a => new { Id = a.Ability, Value = a.Value }),
+                MonstersAmounts = m.MonstersAmounts.Select(c => new { Id = c.GameExtention, Value = c.Amount})
             }), JsonRequestBehavior.AllowGet);
         }
 

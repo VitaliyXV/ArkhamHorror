@@ -1,15 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ArkhamHorror.Model
+namespace Assets.Scripts.Model
 {
+    public enum MonsterTypes
+    {
+        Simple = 1,
+        Mask,
+        Spawn
+    }
+
     [Serializable]
     public class Monster : ArkhamItem
     {
         public string Description;
         public int GameExtention;
         public int MonsterMoveType;
-        public int MonsterType;
+        public MonsterTypes MonsterType;
         public int Dimension;
         public int Toughness;
         public int Awareness;

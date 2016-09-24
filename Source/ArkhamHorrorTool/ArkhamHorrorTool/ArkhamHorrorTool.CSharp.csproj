@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.0f3</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -71,19 +69,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\MenuItemScript.cs" />
-    <Compile Include="Assets\Scripts\Model\Color.cs" />
     <Compile Include="Assets\Scripts\Model\Ability.cs" />
-    <Compile Include="Assets\Scripts\Model\ArkhamItem.cs" />
     <Compile Include="Assets\Scripts\Model\AncientOne.cs" />
+    <Compile Include="Assets\Scripts\Model\ArkhamHorrorModel.cs" />
+    <Compile Include="Assets\Scripts\Model\ArkhamItem.cs" />
+    <Compile Include="Assets\Scripts\Model\Color.cs" />
     <Compile Include="Assets\Scripts\Model\Dimension.cs" />
     <Compile Include="Assets\Scripts\Model\GameExtention.cs" />
     <Compile Include="Assets\Scripts\Model\Herald.cs" />
+    <Compile Include="Assets\Scripts\Model\ModelRelationData.cs" />
     <Compile Include="Assets\Scripts\Model\Monster.cs" />
     <Compile Include="Assets\Scripts\Model\MonsterMoveType.cs" />
     <Compile Include="Assets\Scripts\Model\MonsterType.cs" />
-    <Compile Include="Assets\Scripts\Model\ArkhamHorrorModel.cs" />
-    <Compile Include="Assets\Scripts\Model\ModelRelationData.cs" />
+    <Compile Include="Assets\Scripts\Panels\Main\MenuItemScript.cs" />
+    <Compile Include="Assets\Scripts\Panels\MonsterItem.cs" />
+    <Compile Include="Assets\Scripts\Panels\Settings\ExpantionItem.cs" />
+    <Compile Include="Assets\Scripts\Panels\Settings\SettingsPanel.cs" />
+    <Compile Include="Assets\Scripts\Tools\ImageManager.cs" />
     <Compile Include="Assets\Scripts\Tools\JsonHelper.cs" />
     <Compile Include="Assets\Scripts\Tools\ServerProvider.cs" />
   </ItemGroup>

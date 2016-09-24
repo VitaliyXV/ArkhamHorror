@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ArkhamHorror.Model
+namespace Assets.Scripts.Model
 {
     [Serializable]
     public class MonsterType : ArkhamItem

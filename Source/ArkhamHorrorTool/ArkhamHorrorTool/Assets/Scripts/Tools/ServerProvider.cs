@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections;
-using ArkhamHorror.Model;
+using Assets.Scripts.Model;
 using UnityEngine;
 using UnityEngine.Networking;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace ArkhamHorror.Tools
+namespace Assets.Scripts.Tools
 {
     public class ServerProvider : MonoBehaviour
     {
@@ -18,12 +20,13 @@ namespace ArkhamHorror.Tools
             "Heralds",
             "Monsters",
             "MonsterMoveTypes",
-            "MonsterTypes"
+            "MonsterTypes", 
+            "MonstersCount"
         };
 
         private int _loadDataIndex;
 
-        private void Start()
+        protected void Start()
         {
             for (int i = 0; i < _urls.Length; i++)
             {
@@ -31,13 +34,13 @@ namespace ArkhamHorror.Tools
             }
         }
 
-        void LoadModel(string name)
+        void LoadModel(string uri)
         {
-            StartCoroutine(GetText(serverAddress + name, data =>
+            StartCoroutine(GetText(serverAddress + uri, data =>
             {
-                Debug.Log("----  " + name.ToUpper() +"  ---");
+                Debug.Log("----  " + uri.ToUpper() +"  ---");
 
-                switch (name)
+                switch (uri)
                 {
                     case "Colors": ArkhamHorrorModel.Colors = JsonHelper.FromJsonToList<Model.Color>(data);
                         break;
@@ -63,7 +66,22 @@ namespace ArkhamHorror.Tools
 
                 if (_loadDataIndex == _urls.Length)
                 {
-                    Debug.Log("Data Loading");
+                    var mon = new List<Monster>();
+                    foreach (var m in ArkhamHorrorModel.Monsters.Where(m => m.MonsterType  == MonsterTypes.Simple))
+                    {
+                        // добавляем всех монстров из базовой игры и 3-х дополнений
+                        foreach (var a in m.MonstersAmounts.Where(a=>a.Id < 5))
+                        {
+                            for (var i = 0; i < a.Value; i++)
+                            {
+                                mon.Add(m);
+                            }
+                        }
+                    }
+                    ArkhamHorrorModel.Monsters = mon;
+
+                    Debug.Log("Data Loaded. Monsters: " + ArkhamHorrorModel.Monsters.Count);
+                    ArkhamHorrorModel.InitializeComplete();
                 }
             }));
         }

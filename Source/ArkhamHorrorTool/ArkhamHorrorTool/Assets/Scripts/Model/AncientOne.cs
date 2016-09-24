@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ArkhamHorror.Model
+namespace Assets.Scripts.Model
 {
     [Serializable]
     public class AncientOne : ArkhamItem
