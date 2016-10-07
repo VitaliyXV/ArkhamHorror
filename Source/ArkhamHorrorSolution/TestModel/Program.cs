@@ -1,5 +1,6 @@
 ﻿using ArkhamHorrorLibrary.Model;
 using System;
+using System.Linq;
 
 namespace TestModel
 {
@@ -11,9 +12,9 @@ namespace TestModel
             {
                 using (var db = new ArkhamHorrorModel())
                 {
-                    foreach (var m in db.Monsters)
+                    foreach (var m in db.AncientOnes.OrderBy(a => a.GameExtention).ThenBy(a=>a.LocalName))
                     {
-                        Console.WriteLine(m.LocalName);
+                        Console.WriteLine(m.LocalName + ": " + m.GameExtention1.LocalName);
                     }
                 }
             }
