@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using Assets.Scripts.Model;
+﻿using Assets.Scripts.Model;
 using Assets.Scripts.Tools;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,9 +14,19 @@ namespace Assets.Scripts.Panels
         [SerializeField]
         private Image _monsterImage;
 
+        [SerializeField]
+        private Sprite _eldritchSign;
+
 
         public void UpdateMonster(Monster monster)
         {
+            if(monster == null)
+            {
+                _monsterName.text = "";
+                _monsterImage.sprite = _eldritchSign;
+                return;
+            }
+
             _monsterName.color = SetColor(monster.MonsterMoveType);
             _monsterName.text = monster.LocalName;
             _monsterImage.sprite = ImageManager.GetMonsterSprite(monster.OriginalName);

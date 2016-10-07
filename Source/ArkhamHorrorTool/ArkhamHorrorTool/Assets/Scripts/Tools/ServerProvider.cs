@@ -66,20 +66,6 @@ namespace Assets.Scripts.Tools
 
                 if (_loadDataIndex == _urls.Length)
                 {
-                    var mon = new List<Monster>();
-                    foreach (var m in ArkhamHorrorModel.Monsters.Where(m => m.MonsterType  == MonsterTypes.Simple))
-                    {
-                        // добавляем всех монстров из базовой игры и 3-х дополнений
-                        foreach (var a in m.MonstersAmounts.Where(a=>a.Id < 5))
-                        {
-                            for (var i = 0; i < a.Value; i++)
-                            {
-                                mon.Add(m);
-                            }
-                        }
-                    }
-                    ArkhamHorrorModel.Monsters = mon;
-
                     Debug.Log("Data Loaded. Monsters: " + ArkhamHorrorModel.Monsters.Count);
                     ArkhamHorrorModel.InitializeComplete();
                 }
