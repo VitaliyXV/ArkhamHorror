@@ -20,7 +20,15 @@ namespace Assets.Scripts.Panels.Main
         private List<Toggle> _expansionToggles;
 
         private List<Monster> _monsterList;
+        
+        [SerializeField]
+        private Text _heraldText;
 
+        [SerializeField]
+        private Text _instituteText;
+
+        [SerializeField]
+        private InvestigatorItem _ivestigators;
 
         protected void Start()
         {
@@ -47,12 +55,13 @@ namespace Assets.Scripts.Panels.Main
                 count--;
             }
 
+            _ivestigators.ExpansionToggles = _expansionToggles;
             SpawnAncientOne();
         }
 
         public void SpawnAncientOne()
         {
-            var list = ArkhamHorrorModel.AncientOnes.Where(m => _expansionToggles[m.GameExtention-1].isOn).ToList();
+            var list = ArkhamHorrorModel.AncientOnes.Where(m => m.GameExtention == 1 || _expansionToggles[m.GameExtention-2].isOn).ToList();
             var index = Random.Range(0, list.Count);
             var a = list[index];
             _ancientOneText.text = a.LocalName;
@@ -66,8 +75,27 @@ namespace Assets.Scripts.Panels.Main
 
         private void UpdateMonsterList(AncientOne ancientOne)
         {
-            _monsterList = ArkhamHorrorModel.Monsters.Where(m => _expansionToggles[m.GameExtention - 1].isOn && (m.MonsterType == MonsterTypes.Simple || (ancientOne.OriginalName == "Nyarlathotep" && m.MonsterType == MonsterTypes.Mask))).ToList();
+            _monsterList = ArkhamHorrorModel.Monsters.Where(m => (m.GameExtention == 1 || _expansionToggles[m.GameExtention - 2].isOn) && (m.MonsterType == MonsterTypes.Simple || (ancientOne.OriginalName == "Nyarlathotep" && m.MonsterType == MonsterTypes.Mask))).ToList();
             _monsterItem.UpdateMonster(null);
+        }
+
+        public void RandomInstitute()
+        {
+            var i = Random.Range(0, 4);
+            switch (i)
+            {
+                case 0: _instituteText.text = "Отсутствует"; break;
+                case 1: _instituteText.text = "Бюро Расследований"; break;
+                case 2: _instituteText.text = "Мискатониский Университет"; break;
+                case 3: _instituteText.text = "Организованная Преступность"; break;
+            }
+        }
+
+        public void SpawnHerald()
+        {
+            var heralds = ArkhamHorrorModel.Heralds.Where((h => h.GameExtention == 1 || _expansionToggles[h.GameExtention - 2].isOn)).ToList();
+            var i = Random.Range(0, heralds.Count + 1);
+            _heraldText.text = i == heralds.Count ? "Отсутствует" : heralds[i].LocalName;
         }
     }
 }
