@@ -76,6 +76,10 @@ namespace Assets.Scripts.Panels.Main
         private void UpdateMonsterList(AncientOne ancientOne)
         {
             _monsterList = ArkhamHorrorModel.Monsters.Where(m => (m.GameExtention == 1 || _expansionToggles[m.GameExtention - 2].isOn) && (m.MonsterType == MonsterTypes.Simple || (ancientOne.OriginalName == "Nyarlathotep" && m.MonsterType == MonsterTypes.Mask))).ToList();
+            if (ancientOne.OriginalName == "Abhoth")
+            {
+                _monsterList.Remove(_monsterList.FirstOrDefault(m => m.OriginalName == ""));
+            }
             _monsterItem.UpdateMonster(null);
         }
 
@@ -96,6 +100,32 @@ namespace Assets.Scripts.Panels.Main
             var heralds = ArkhamHorrorModel.Heralds.Where((h => h.GameExtention == 1 || _expansionToggles[h.GameExtention - 2].isOn)).ToList();
             var i = Random.Range(0, heralds.Count + 1);
             _heraldText.text = i == heralds.Count ? "Отсутствует" : heralds[i].LocalName;
+        }
+
+        public void Save()
+        {
+            var list = new List<string>();
+            for (var i = 0; i < _expansionToggles.Count; i++)
+            {
+                if(_expansionToggles[i].isOn) list.Add(i.ToString());
+            }
+            var exp = string.Join(";", list.ToArray());
+            PlayerPrefs.SetString("Expantions", exp);
+
+
+        }
+
+        public void Load()
+        {
+            var exp = PlayerPrefs.GetString("Expantions");
+            var list = exp.Split(';').ToList();
+            for (var i = 0; i < _expansionToggles.Count; i++)
+            {
+                _expansionToggles[i].isOn = list.Contains(i.ToString());
+            }
+
+            _ivestigators.ExpansionToggles = _expansionToggles;
+            SpawnAncientOne();
         }
     }
 }
