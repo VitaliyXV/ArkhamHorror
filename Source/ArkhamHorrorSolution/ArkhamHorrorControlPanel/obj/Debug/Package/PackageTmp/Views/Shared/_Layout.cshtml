@@ -11,37 +11,34 @@
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+            <div class="navbar-header">               
                 @Html.ActionLink("Arkham Horror control panel", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Дополнения", "Index", "GameExtentions")</li>
-                    <li>@Html.ActionLink("Цвета Миров и Монстров", "Index", "Colors")</li>                    
-                    <li>@Html.ActionLink("Иные миры", "Index", "Dimensions")</li>                                     
-                </ul>
-                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Цвета", "Index", "Colors")</li>                    
+                    <li>@Html.ActionLink("Иные миры", "Index", "Dimensions")</li> 
                     <li>@Html.ActionLink("Монстры", "Index", "Monsters")</li>
                     <li>@Html.ActionLink("Типы движения монстров", "Index", "MonsterMoveTypes")</li>
                     <li>@Html.ActionLink("Свойства монстров", "Index", "Abilities")</li>
                     <li>@Html.ActionLink("Типы Монстров", "Index", "MonsterTypes")</li>  
-                    <li>@Html.ActionLink("Количество Монстров", "Index", "MonstersAmounts")</li> 
-                     
-                </ul>
-                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Количество Монстров", "Index", "MonstersAmounts")</li>    
                     <li>@Html.ActionLink("Древние", "Index", "AncientOnes")</li>
                     <li>@Html.ActionLink("Вестники", "Index", "Heralds")</li>
+                    <li>@Html.ActionLink("Улицы", "Index", "GameStreets")</li>
+                    <li>@Html.ActionLink("Локации", "Index", "GameLocations")</li>
+                    <li>@Html.ActionLink("Типы контактов", "Index", "EncounterTypes")</li>
                 </ul>
-    @Html.Partial("_LoginPartial")
-</div>
+                @*@Html.Partial("_LoginPartial")*@
+            </div>
         </div>
     </div>
     <div class="container body-content">
+        <br />
+        <br />
+        <br />
+        <hr />
         @RenderBody()
         <hr />
         <footer>

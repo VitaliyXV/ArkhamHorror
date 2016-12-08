@@ -57,17 +57,26 @@
     <Compile Include="Model\ArkhamHorrorModel.cs" />
     <Compile Include="Model\Color.cs" />
     <Compile Include="Model\Dimension.cs" />
+    <Compile Include="Model\EncounterType.cs" />
     <Compile Include="Model\GameExtention.cs" />
+    <Compile Include="Model\GameLocation.cs" />
+    <Compile Include="Model\GameStreet.cs" />
     <Compile Include="Model\Herald.cs" />
+    <Compile Include="Model\Investigator.cs" />
+    <Compile Include="Model\InvestigatorAbility.cs" />
     <Compile Include="Model\Monster.cs" />
     <Compile Include="Model\MonsterMoveType.cs" />
     <Compile Include="Model\MonstersAbility.cs" />
     <Compile Include="Model\MonstersAmount.cs" />
     <Compile Include="Model\MonsterType.cs" />
+    <Compile Include="Model\Occupation.cs" />
+    <Compile Include="Model\SpecialEncounter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

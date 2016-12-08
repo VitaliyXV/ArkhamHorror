@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ArkhamHorrorLibrary.Model.GameStreet>
+
+@{ 
+    ViewBag.Title = "Список улиц";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>Color</th>
+            <th>
+                @Html.DisplayNameFor(model => model.OriginalName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LocalName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                Expansion
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td style="background-color:@item.Color1.OriginalName; border: 1px solid black;"></td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OriginalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocalName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GameExtention1.OriginalName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>

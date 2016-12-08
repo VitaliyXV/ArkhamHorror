@@ -172,12 +172,15 @@
     <Compile Include="Controllers\ArkhamHorror\AncientOnesController.cs" />
     <Compile Include="Controllers\ArkhamHorror\ColorsController.cs" />
     <Compile Include="Controllers\ArkhamHorror\DimensionsController.cs" />
+    <Compile Include="Controllers\ArkhamHorror\EncounterTypesController.cs" />
     <Compile Include="Controllers\ArkhamHorror\GameExtentionsController.cs" />
+    <Compile Include="Controllers\ArkhamHorror\GameStreetsController.cs" />
     <Compile Include="Controllers\ArkhamHorror\HeraldsController.cs" />
     <Compile Include="Controllers\ArkhamHorror\MonsterMoveTypesController.cs" />
     <Compile Include="Controllers\ArkhamHorror\MonstersAmountsController.cs" />
     <Compile Include="Controllers\ArkhamHorror\MonstersController.cs" />
     <Compile Include="Controllers\ArkhamHorror\MonsterTypesController.cs" />
+    <Compile Include="Controllers\ArkhamHorror\SpecialEncountersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -193,6 +196,17 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Images\Cthulhu-1000x540-810x400.jpg" />
+    <Content Include="Content\Images\EncounterIcons\AllyIcon.png" />
+    <Content Include="Content\Images\EncounterIcons\BlessingIcon.png" />
+    <Content Include="Content\Images\EncounterIcons\ClueIcon.png" />
+    <Content Include="Content\Images\EncounterIcons\Common ItemIcon.png" />
+    <Content Include="Content\Images\EncounterIcons\MoneyIcon.png" />
+    <Content Include="Content\Images\EncounterIcons\Not AvailableIcon.png" />
+    <Content Include="Content\Images\EncounterIcons\SanityIcon.png" />
+    <Content Include="Content\Images\EncounterIcons\SkillIcon.png" />
+    <Content Include="Content\Images\EncounterIcons\SpellIcon.png" />
+    <Content Include="Content\Images\EncounterIcons\StaminaIcon.png" />
+    <Content Include="Content\Images\EncounterIcons\Unique ItemIcon.png" />
     <Content Include="Content\Images\ExpansionIcons\1.png" />
     <Content Include="Content\Images\ExpansionIcons\2.png" />
     <Content Include="Content\Images\ExpansionIcons\3.png" />
@@ -424,6 +438,21 @@
     <Content Include="Views\Heralds\Details.cshtml" />
     <Content Include="Views\Heralds\Edit.cshtml" />
     <Content Include="Views\Heralds\Index.cshtml" />
+    <Content Include="Views\GameStreets\Create.cshtml" />
+    <Content Include="Views\GameStreets\Delete.cshtml" />
+    <Content Include="Views\GameStreets\Details.cshtml" />
+    <Content Include="Views\GameStreets\Edit.cshtml" />
+    <Content Include="Views\GameStreets\Index.cshtml" />
+    <Content Include="Views\EncounterTypes\Create.cshtml" />
+    <Content Include="Views\EncounterTypes\Delete.cshtml" />
+    <Content Include="Views\EncounterTypes\Details.cshtml" />
+    <Content Include="Views\EncounterTypes\Edit.cshtml" />
+    <Content Include="Views\EncounterTypes\Index.cshtml" />
+    <Content Include="Views\SpecialEncounters\Create.cshtml" />
+    <Content Include="Views\SpecialEncounters\Delete.cshtml" />
+    <Content Include="Views\SpecialEncounters\Details.cshtml" />
+    <Content Include="Views\SpecialEncounters\Edit.cshtml" />
+    <Content Include="Views\SpecialEncounters\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

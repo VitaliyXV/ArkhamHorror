@@ -16,6 +16,13 @@ use ArkhamHorror;
 --drop table Colors;
 --drop table GameExtentions;
 
+--drop table SpecialEncounters;
+--drop table EncounterTypes;
+--drop table GameLocations;
+--drop table Occupations;
+--drop table InvestigatorAbilities;
+--drop table Investigators;
+--drop table InvastigatorAbilities;
 ----------------------------
 
 create table GameExtentions
@@ -137,6 +144,83 @@ create table Heralds
 	GameExtention int foreign key references GameExtentions(id) not null
 );
 
+create table GameStreets
+(
+	Id int primary key identity,
+	OriginalName nvarchar(50) not null,
+	LocalName nvarchar(50) not null,
+	[Description] nvarchar(max) default '',
+	Color int foreign key references Colors(id) not null,
+	GameExtention int foreign key references GameExtentions(id) not null
+);
+
+create table EncounterTypes
+(
+	Id int primary key identity,
+	OriginalName nvarchar(50) not null,
+	LocalName nvarchar(50) not null,
+	[Description] nvarchar(max) default ''
+);
+
+create table SpecialEncounters
+(
+	Id int primary key identity,
+	OriginalName nvarchar(50) not null,
+	LocalName nvarchar(50) not null,
+	[Description] nvarchar(max) default ''
+);
+
+create table GameLocations
+(
+	Id int primary key identity,
+	OriginalName nvarchar(50) not null,
+	LocalName nvarchar(50) not null,
+	[Description] nvarchar(max) default '',
+	IsStabile bit not null default 0,
+	SpecialEncounter int foreign key references SpecialEncounters(id) default null,
+	EncounterType1 int foreign key references EncounterTypes(id) not null,
+	EncounterType2 int foreign key references EncounterTypes(id) not null,
+	NeighborhoodStreet int foreign key references GameStreets(id) not null,
+	Color int foreign key references Colors(id) not null,
+	GameExtention int foreign key references GameExtentions(id) not null
+);
+
+create table Occupations
+(
+	Id int primary key identity,
+	OriginalName nvarchar(50) not null,
+	LocalName nvarchar(50) not null,
+);
+
+create table InvestigatorAbilities
+(
+	Id int primary key identity,
+	OriginalName nvarchar(50) not null,
+	LocalName nvarchar(50) not null,
+	[Description] nvarchar(max) default '',
+);
+
+create table Investigators
+(
+	Id int primary key identity,
+	OriginalName nvarchar(50) not null,
+	LocalName nvarchar(50) not null,
+	Occupation  int foreign key references Occupations(id) not null,
+	StartLocation int foreign key references GameLocations(id) not null,
+	Sanity int not null default 0,
+	Stamina int not null default 0,
+	Focus int not null default 0,
+	[Description] nvarchar(max) default '',
+	GameExtention int foreign key references GameExtentions(id) not null
+);
+
+create table InvastigatorAndAbilities
+(	
+	Investigator int foreign key references Investigators(id) not null,
+	Ability int foreign key references InvestigatorAbilities(id) not null,
+);
+
+
 ---------------------------------------
 
 insert into GameExtentions (OriginalName, LocalName, [Description], ReleaseYear)
@@ -168,3 +252,6 @@ insert into MonstersAbilities (Monster, Ability, Value) values (1, 1, 1);
 
 select * from MonstersAmount;
 select * from MonstersAbilities;
+
+select * from GameLocations;
+select * from GameStreets;

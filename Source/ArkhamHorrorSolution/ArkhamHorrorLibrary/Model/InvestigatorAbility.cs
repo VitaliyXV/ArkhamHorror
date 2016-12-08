@@ -6,15 +6,13 @@ namespace ArkhamHorrorLibrary.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Color
+    public partial class InvestigatorAbility
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Color()
+        public InvestigatorAbility()
         {
-            GameLocations = new HashSet<GameLocation>();
-            GameStreets = new HashSet<GameStreet>();
-            MonsterMoveTypes = new HashSet<MonsterMoveType>();
-            Dimensions = new HashSet<Dimension>();
+            Investigators = new HashSet<Investigator>();
+            Investigators1 = new HashSet<Investigator>();
         }
 
         public int Id { get; set; }
@@ -27,16 +25,12 @@ namespace ArkhamHorrorLibrary.Model
         [StringLength(50)]
         public string LocalName { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GameLocation> GameLocations { get; set; }
+        public string Description { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GameStreet> GameStreets { get; set; }
+        public virtual ICollection<Investigator> Investigators { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<MonsterMoveType> MonsterMoveTypes { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dimension> Dimensions { get; set; }
+        public virtual ICollection<Investigator> Investigators1 { get; set; }
     }
 }

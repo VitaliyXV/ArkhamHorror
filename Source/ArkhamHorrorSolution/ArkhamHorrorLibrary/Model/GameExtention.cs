@@ -13,7 +13,10 @@ namespace ArkhamHorrorLibrary.Model
         {
             AncientOnes = new HashSet<AncientOne>();
             Dimensions = new HashSet<Dimension>();
+            GameLocations = new HashSet<GameLocation>();
+            GameStreets = new HashSet<GameStreet>();
             Heralds = new HashSet<Herald>();
+            Investigators = new HashSet<Investigator>();
             Monsters = new HashSet<Monster>();
             MonstersAmounts = new HashSet<MonstersAmount>();
         }
@@ -40,7 +43,16 @@ namespace ArkhamHorrorLibrary.Model
         public virtual ICollection<Dimension> Dimensions { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GameLocation> GameLocations { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<GameStreet> GameStreets { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Herald> Heralds { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Investigator> Investigators { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Monster> Monsters { get; set; }
